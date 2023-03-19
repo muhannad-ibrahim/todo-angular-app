@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript - To Do List</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="clear">
+                <i class="fa fa-refresh"></i>
+            </div>
+            <div id="date"></div>
+        </div>
+        <div class="add-to-do">
+            <i id="plus" class="fa fa-plus-circle" (click)="add()"></i>
+            <input [(ngModel)]="task" type="text" id="input" placeholder="Add a to-do">
+        </div>
+        <div class="content">
+            <ul id="list">
+                <li class="item" *ngFor="let todo of todoArr; let i = index"> 
+                    <i class="fa-regular fa-circle co" (click)="done(i)" job="complete" id="0"></i>
+                    <p class="text" [ngClass]="doneChecked && indexChecked === i ? 'lineThrough' : '' ">{{todo}}</p>
+                    <i class="fa-sharp fa-solid fa-trash de" (click)="deleteArr(i)" job="delete" id="0"></i> 
+                </li> 
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
