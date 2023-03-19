@@ -15,15 +15,15 @@
             <div id="date"></div>
         </div>
         <div class="add-to-do">
-            <i id="plus" class="fa fa-plus-circle" (click)="add()"></i>
+            <i id="plus" class="fa fa-plus-circle" (click)="add(todoArr[todoArr.length -1].id +1)"></i>
             <input [(ngModel)]="task" type="text" id="input" placeholder="Add a to-do">
         </div>
         <div class="content">
             <ul id="list">
-                <li class="item" *ngFor="let todo of todoArr; let i = index"> 
-                    <i class="fa-regular fa-circle co" (click)="done(i)" job="complete" id="0"></i>
-                    <p class="text" [ngClass]="doneChecked && indexChecked === i ? 'lineThrough' : '' ">{{todo}}</p>
-                    <i class="fa-sharp fa-solid fa-trash de" (click)="deleteArr(i)" job="delete" id="0"></i> 
+                <li class="item" *ngFor="let todo of todoArr"> 
+                    <i class="fa-regular fa-circle co" (click)="done(todo.id)" job="complete" id="0"></i>
+                    <p class="text" [ngClass]="todo.completed ? 'lineThrough' : '' ">{{todo.todo}}</p>
+                    <i class="fa-sharp fa-solid fa-trash de" (click)="deleteArr(todo.id)" job="delete" id="0"></i> 
                 </li> 
             </ul>
         </div>
